@@ -1,0 +1,23 @@
+<header class="header">
+  <!-- --------------------------------------------------------------------------
+       BRAND (Logo + Texto)
+       -------------------------------------------------------------------------- -->
+  <a routerLink="/" class="header__brand">
+    <img
+      src="assets/images/Logo Scantral.png"
+      alt="Logo de Scantral"
+      class="header__logo"
+    />
+    <span class="header__title">Scantral</span>
+  </a>
+
+  <!-- --------------------------------------------------------------------------
+       NAVEGACIÓN (Login + CTA)
+       -------------------------------------------------------------------------- -->
+  <nav class="header__nav">
+    <a routerLink="/login" class="header__link">Iniciar sesión</a>
+    <a routerLink="/registro">
+      <app-button variant="primary" size="md">Crear cuenta</app-button>
+    </a>
+  </nav>
+</header>
