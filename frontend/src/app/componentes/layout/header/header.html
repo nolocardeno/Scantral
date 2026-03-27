@@ -2,7 +2,7 @@
   <!-- --------------------------------------------------------------------------
        BRAND (Logo + Texto)
        -------------------------------------------------------------------------- -->
-  <a routerLink="/" class="header__brand">
+  <a [routerLink]="authService.estaLogueado() ? '/dashboard' : '/'" class="header__brand">
     <img
       src="assets/images/Logo Scantral.png"
       alt="Logo de Scantral"
@@ -12,12 +12,21 @@
   </a>
 
   <!-- --------------------------------------------------------------------------
-       NAVEGACIÓN (Login + CTA)
+       NAVEGACIÓN: Varía según estado de sesión
        -------------------------------------------------------------------------- -->
-  <nav class="header__nav">
-    <a routerLink="/login" class="header__link">Iniciar sesión</a>
-    <a routerLink="/registro">
-      <app-button variant="primary" size="md">Crear cuenta</app-button>
-    </a>
-  </nav>
+  @if (authService.estaLogueado()) {
+    <nav class="header__nav">
+      <app-card-usuario
+        [username]="authService.usuario()!.name"
+        subtitle="Cuenta personal"
+      />
+    </nav>
+  } @else {
+    <nav class="header__nav">
+      <a (click)="authModal.abrirLogin()" class="header__link">Iniciar sesión</a>
+      <a (click)="authModal.abrirRegistro()">
+        <app-button variant="primary" size="md">Crear cuenta</app-button>
+      </a>
+    </nav>
+  }
 </header>
