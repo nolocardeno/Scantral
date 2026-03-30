@@ -13,7 +13,7 @@ import { Component, input } from '@angular/core';
 })
 export class ButtonComponent {
   variant = input<'primary' | 'secondary' | 'ghost'>('primary');
-  size = input<'sm' | 'md' | 'lg' | 'auth'>('md');
+  size = input<'sm' | 'md' | 'lg' | 'auth' | 'cta'>('md');
   type = input<'button' | 'submit'>('button');
   disabled = input<boolean>(false);
 }

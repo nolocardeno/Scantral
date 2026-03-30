@@ -1,4 +1,5 @@
 @use '../../../../styles/00-settings/variables' as v;
+@use '../../../../styles/01-tools/mixins' as m;
 
 // --------------------------------------------------------------------------
 // BOTÓN BASE
@@ -12,9 +13,7 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition:
-    transform v.$transition-fast,
-    box-shadow v.$transition-fast;
+  @include m.hover-elevation;
 }
 
 // --------------------------------------------------------------------------
@@ -25,16 +24,6 @@
   color: v.$neutral-900;
   border-radius: v.$radius-pill;
   box-shadow: v.$shadow-card;
-
-  &:hover:not(:disabled) {
-    transform: translateY(-0.125rem);
-    box-shadow: 0 0.4375rem 0.375rem rgba(0, 0, 0, 0.35);
-  }
-
-  &:active:not(:disabled) {
-    transform: translateY(0.0625rem);
-    box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.2);
-  }
 }
 
 .btn--secondary {
@@ -42,22 +31,12 @@
   color: v.$neutral-900;
   border: v.$border-medium solid v.$color-primary;
   border-radius: v.$radius-pill;
-
-  &:hover:not(:disabled) {
-    transform: translateY(-0.125rem);
-    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.15);
-  }
 }
 
 .btn--ghost {
   background: transparent;
   color: v.$neutral-900;
   border-radius: v.$radius-pill;
-
-  &:hover:not(:disabled) {
-    transform: translateY(-0.125rem);
-    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1);
-  }
 }
 
 // --------------------------------------------------------------------------
@@ -85,6 +64,12 @@
 .btn--auth {
   width: 11.25rem;
   height: v.$spacing-7;
+  font-size: v.$font-size-md;
+}
+
+.btn--cta {
+  width: 12.5rem;
+  height: 3.75rem;
   font-size: v.$font-size-md;
 }
 
