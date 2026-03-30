@@ -1,0 +1,50 @@
+<!-- --------------------------------------------------------------------------
+     SECCIÓN HERO
+     -------------------------------------------------------------------------- -->
+<section class="hero">
+  <h1 class="hero__titulo">
+    Tus documentos y tickets,<br />
+    <span class="hero__titulo--gradiente">organizados</span> y siempre a mano
+  </h1>
+
+  <p class="hero__descripcion">
+    Olvídate del caos de papeles. Scantral digitaliza tus compras, organiza
+    tus documentos y crea recordatorios antes de que algo caduque.
+  </p>
+
+  <a class="hero__cta" (click)="authModal.abrirRegistro()">
+    <app-button variant="primary" size="cta">Comienza gratis</app-button>
+  </a>
+</section>
+
+<!-- --------------------------------------------------------------------------
+     SECCIÓN CARACTERÍSTICAS PRINCIPALES
+     -------------------------------------------------------------------------- -->
+<section class="caracteristicas">
+  <h2 class="caracteristicas__titulo">Características principales</h2>
+
+  <ul class="caracteristicas__grid">
+    @for (feature of features; track feature.texto) {
+      <li>
+        <app-feature-card [icono]="feature.icono" [texto]="feature.texto" [descripcion]="feature.descripcion" />
+      </li>
+    }
+  </ul>
+</section>
+
+<!-- --------------------------------------------------------------------------
+     SECCIÓN PREGUNTAS FRECUENTES
+     -------------------------------------------------------------------------- -->
+<section class="faq">
+  <h2 class="faq__titulo">Preguntas frecuentes</h2>
+
+  <ul class="faq__lista">
+    @for (item of preguntasFrecuentes; track item.pregunta) {
+      <li>
+        <app-accordion-item [pregunta]="item.pregunta">
+          {{ item.respuesta }}
+        </app-accordion-item>
+      </li>
+    }
+  </ul>
+</section>
