@@ -1,3 +1,22 @@
+// --------------------------------------------------------------------------
+// IMPORTS
+// --------------------------------------------------------------------------
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+// --------------------------------------------------------------------------
+// RUTAS DE LA APLICACIÓN
+// --------------------------------------------------------------------------
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =>
+      import('./pages/landing-page/landing-page').then((m) => m.LandingPageComponent),
+  },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./pages/dashboard/dashboard').then(
+        (m) => m.DashboardComponent,
+      ),
+  },
+];
