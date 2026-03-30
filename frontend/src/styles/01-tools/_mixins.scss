@@ -66,7 +66,7 @@
 // CARD — Estilo base para tarjetas
 // --------------------------------------------------------------------------
 @mixin card($padding: v.$spacing-3) {
-  background-color: v.$color-card;
+  background-color: v.$color-surface;
   border-radius: v.$radius-lg;
   box-shadow: v.$shadow-md;
   padding: $padding;
@@ -79,4 +79,23 @@
   transition-property: $properties;
   transition-duration: $speed;
   transition-timing-function: ease-in-out;
+}
+
+// --------------------------------------------------------------------------
+// HOVER ELEVACIÓN — Efecto interactivo unificado
+// --------------------------------------------------------------------------
+@mixin hover-elevation {
+  transition:
+    transform v.$transition-fast,
+    box-shadow v.$transition-fast;
+
+  &:hover {
+    transform: translateY(v.$hover-translate);
+    box-shadow: v.$hover-shadow;
+  }
+
+  &:active {
+    transform: translateY(v.$active-translate);
+    box-shadow: v.$active-shadow;
+  }
 }
