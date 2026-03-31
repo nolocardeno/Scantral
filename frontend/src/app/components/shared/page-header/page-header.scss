@@ -1,0 +1,54 @@
+@use '../../../../styles/00-settings/variables' as v;
+
+// --------------------------------------------------------------------------
+// HOST
+// --------------------------------------------------------------------------
+:host {
+  display: block;
+}
+
+// --------------------------------------------------------------------------
+// PAGE HEADER
+// --------------------------------------------------------------------------
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: v.$color-gradient-primary;
+  border-radius: v.$radius-card;
+  box-shadow: v.$shadow-card;
+  padding: 1.25rem v.$spacing-3;
+}
+
+// --------------------------------------------------------------------------
+// BLOQUE DE TEXTO (Título + Subtítulo)
+// --------------------------------------------------------------------------
+.page-header__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.page-header__title {
+  font-family: v.$font-primary;
+  font-weight: v.$font-weight-bold;
+  font-size: v.$font-size-lg;
+  color: v.$neutral-900;
+  line-height: v.$line-height-tight;
+}
+
+.page-header__subtitle {
+  font-family: v.$font-primary;
+  font-weight: v.$font-weight-medium;
+  font-size: v.$font-size-md;
+  color: v.$color-text-secondary;
+}
+
+// --------------------------------------------------------------------------
+// ÁREA DE BOTONES
+// --------------------------------------------------------------------------
+.page-header__actions {
+  display: flex;
+  align-items: center;
+  gap: v.$spacing-2;
+}
