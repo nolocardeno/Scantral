@@ -1,0 +1,19 @@
+// --------------------------------------------------------------------------
+// IMPORTS
+// --------------------------------------------------------------------------
+import { Component, input } from '@angular/core';
+
+// --------------------------------------------------------------------------
+// COMPONENTE: BUTTON (Reutilizable)
+// --------------------------------------------------------------------------
+@Component({
+  selector: 'app-button',
+  templateUrl: './button.html',
+  styleUrl: './button.scss',
+})
+export class ButtonComponent {
+  variant = input<'primary' | 'secondary' | 'ghost' | 'text' | 'icon'>('primary');
+  size = input<'sm' | 'md' | 'lg' | 'auth' | 'cta'>('md');
+  type = input<'button' | 'submit'>('button');
+  disabled = input<boolean>(false);
+}
