@@ -1,0 +1,38 @@
+<!-- --------------------------------------------------------------------------
+     ACCORDION ITEM: Pregunta colapsable con respuesta expandible
+     -------------------------------------------------------------------------- -->
+<article
+  class="accordion-item"
+  [class.accordion-item--open]="open()"
+>
+  <button
+    type="button"
+    class="accordion-item__header"
+    (click)="toggle()"
+    [attr.aria-expanded]="open()"
+  >
+    <span class="accordion-item__question">{{ question() }}</span>
+    <svg
+      class="accordion-item__icon"
+      [class.accordion-item__icon--open]="open()"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  </button>
+
+  <section class="accordion-item__body" [class.accordion-item__body--open]="open()">
+    <div class="accordion-item__content">
+      <p class="accordion-item__answer">
+        <ng-content />
+      </p>
+    </div>
+  </section>
+</article>

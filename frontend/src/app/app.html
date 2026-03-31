@@ -13,20 +13,20 @@
 <!-- --------------------------------------------------------------------------
      FOOTER
      -------------------------------------------------------------------------- -->
-<app-footer [variante]="footerVariante()" />
+<app-footer [variant]="footerVariant()" />
 
 <!-- --------------------------------------------------------------------------
      MODALES DE AUTENTICACIÓN
      -------------------------------------------------------------------------- -->
-@if (authModal.modalActivo() === 'login') {
+@if (authModal.activeModal() === 'login') {
   <app-login />
 }
-@if (authModal.modalActivo() === 'registro') {
-  <app-registro />
+@if (authModal.activeModal() === 'register') {
+  <app-register />
 }
 
 <!-- --------------------------------------------------------------------------
      ALERTAS / NOTIFICACIONES
      -------------------------------------------------------------------------- -->
-<app-alertas />
+<app-alerts />
 

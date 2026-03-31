@@ -12,7 +12,7 @@
     tus documentos y crea recordatorios antes de que algo caduque.
   </p>
 
-  <a class="hero__cta" (click)="authModal.abrirRegistro()">
+  <a class="hero__cta" (click)="authModal.openRegister()">
     <app-button variant="primary" size="cta">Comienza gratis</app-button>
   </a>
 </section>
@@ -20,13 +20,13 @@
 <!-- --------------------------------------------------------------------------
      SECCIÓN CARACTERÍSTICAS PRINCIPALES
      -------------------------------------------------------------------------- -->
-<section class="caracteristicas">
-  <h2 class="caracteristicas__titulo">Características principales</h2>
+<section class="features">
+  <h2 class="features__title">Características principales</h2>
 
-  <ul class="caracteristicas__grid">
-    @for (feature of features; track feature.texto) {
+  <ul class="features__grid">
+    @for (feature of features; track feature.text) {
       <li>
-        <app-feature-card [icono]="feature.icono" [texto]="feature.texto" [descripcion]="feature.descripcion" />
+        <app-feature-card [icon]="feature.icon" [text]="feature.text" [description]="feature.description" />
       </li>
     }
   </ul>
@@ -39,10 +39,10 @@
   <h2 class="faq__titulo">Preguntas frecuentes</h2>
 
   <ul class="faq__lista">
-    @for (item of preguntasFrecuentes; track item.pregunta) {
+    @for (item of faq; track item.question) {
       <li>
-        <app-accordion-item [pregunta]="item.pregunta">
-          {{ item.respuesta }}
+        <app-accordion-item [question]="item.question">
+          {{ item.answer }}
         </app-accordion-item>
       </li>
     }

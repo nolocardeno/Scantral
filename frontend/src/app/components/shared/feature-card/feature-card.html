@@ -1,0 +1,17 @@
+<!-- --------------------------------------------------------------------------
+     FEATURE CARD: Icono + texto (frontal) / Descripción (trasera)
+     -------------------------------------------------------------------------- -->
+<article
+  class="feature-card"
+  [class.feature-card--flipped]="flipped()"
+  (click)="toggle()"
+>
+  <section class="feature-card__cara feature-card__front">
+    <fa-icon [icon]="icon()" class="feature-card__icon" />
+    <p class="feature-card__text">{{ text() }}</p>
+  </section>
+
+  <section class="feature-card__cara feature-card__back">
+    <p class="feature-card__description">{{ description() }}</p>
+  </section>
+</article>

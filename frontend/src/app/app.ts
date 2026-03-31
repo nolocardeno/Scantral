@@ -5,17 +5,17 @@ import { Component, inject } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs';
-import { HeaderComponent } from './componentes/layout/header/header';
-import { FooterComponent } from './componentes/layout/footer/footer';
-import { LoginComponent } from './componentes/auth/login/login';
-import { RegistroComponent } from './componentes/auth/registro/registro';
-import { AuthModalService } from './servicios/auth-modal.service';
-import { AlertasComponent } from './componentes/shared/alertas/alertas';
+import { HeaderComponent } from './components/layout/header/header';
+import { FooterComponent } from './components/layout/footer/footer';
+import { LoginComponent } from './components/auth/login/login';
+import { RegisterComponent } from './components/auth/register/register';
+import { AuthModalService } from './services/auth-modal.service';
+import { AlertsComponent } from './components/shared/alerts/alerts';
 
 // --------------------------------------------------------------------------
 // RUTAS QUE USAN LAYOUT CON SIDEBAR
 // --------------------------------------------------------------------------
-const RUTAS_CON_SIDEBAR = ['/dashboard'];
+const SIDEBAR_ROUTES = ['/dashboard', '/settings'];
 
 // --------------------------------------------------------------------------
 // COMPONENTE: APP (ROOT)
@@ -27,8 +27,8 @@ const RUTAS_CON_SIDEBAR = ['/dashboard'];
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    RegistroComponent,
-    AlertasComponent,
+    RegisterComponent,
+    AlertsComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -37,12 +37,12 @@ export class App {
   private readonly router = inject(Router);
   protected readonly authModal = inject(AuthModalService);
 
-  protected readonly footerVariante = toSignal(
+  protected readonly footerVariant = toSignal(
     this.router.events.pipe(
       filter((e): e is NavigationEnd => e instanceof NavigationEnd),
       map((e) =>
-        RUTAS_CON_SIDEBAR.some((ruta) => e.urlAfterRedirects.startsWith(ruta))
-          ? ('con-sidebar' as const)
+        SIDEBAR_ROUTES.some((route) => e.urlAfterRedirects.startsWith(route))
+          ? ('with-sidebar' as const)
           : ('default' as const),
       ),
     ),

@@ -1,0 +1,33 @@
+<!-- --------------------------------------------------------------------------
+     MODAL REGISTRO: Formulario de creación de cuenta
+     -------------------------------------------------------------------------- -->
+<app-auth-card title="Creación de cuenta">
+  <form class="register" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <app-form-field
+      label="Email"
+      type="email"
+      inputId="register-email"
+      formControlName="email"
+    />
+
+    <app-form-field
+      label="Contraseña"
+      type="password"
+      inputId="register-password"
+      formControlName="password"
+    />
+
+    <app-form-field
+      label="Confirmar contraseña"
+      type="password"
+      inputId="register-confirm-password"
+      formControlName="confirmPassword"
+    />
+
+    <hr class="register__separator" />
+
+    <app-button variant="primary" size="auth" type="submit" class="register__action" [disabled]="loading">
+      {{ loading ? 'Creando...' : 'Crear cuenta' }}
+    </app-button>
+  </form>
+</app-auth-card>

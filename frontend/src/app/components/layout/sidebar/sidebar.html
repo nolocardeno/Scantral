@@ -1,0 +1,40 @@
+<!-- --------------------------------------------------------------------------
+     SIDEBAR: Main lateral navigation
+     -------------------------------------------------------------------------- -->
+<nav class="sidebar" aria-label="Main navigation">
+  <!-- ------------------------------------------------------------------
+       NAVIGATION BUTTONS (stacked vertically)
+       ------------------------------------------------------------------ -->
+  <app-sidebar-button
+    type="Dashboard"
+    [active]="currentPage() === 'Dashboard'"
+    (click)="navigate('Dashboard')"
+  />
+
+  <app-sidebar-button
+    type="Groups"
+    [active]="currentPage() === 'Groups'"
+    (click)="navigate('Groups')"
+  />
+
+  <app-sidebar-button
+    type="Validator"
+    [active]="currentPage() === 'Validator'"
+    (click)="navigate('Validator')"
+  />
+
+  <app-sidebar-button
+    type="Settings"
+    [active]="currentPage() === 'Settings'"
+    (click)="navigate('Settings')"
+  />
+
+  <!-- ------------------------------------------------------------------
+       LOGOUT (fixed at the bottom)
+       ------------------------------------------------------------------ -->
+  <app-sidebar-button
+    class="sidebar__logout"
+    type="Logout"
+    (click)="navigate('Logout')"
+  />
+</nav>

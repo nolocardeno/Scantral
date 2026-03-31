@@ -1,0 +1,32 @@
+<!-- --------------------------------------------------------------------------
+     MODAL LOGIN: Formulario de inicio de sesión
+     -------------------------------------------------------------------------- -->
+<app-auth-card title="Inicio de sesión">
+  <form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <app-form-field
+      label="Email"
+      type="email"
+      inputId="login-email"
+      formControlName="email"
+    />
+
+    <app-form-field
+      label="Contraseña"
+      type="password"
+      inputId="login-password"
+      formControlName="password"
+    />
+
+    <app-form-checkbox
+      label="Recuérdame"
+      checkboxId="login-remember"
+      formControlName="rememberMe"
+    />
+
+    <hr class="login__separator" />
+
+    <app-button variant="primary" size="auth" type="submit" class="login__action" [disabled]="loading">
+      {{ loading ? 'Iniciando...' : 'Iniciar sesión' }}
+    </app-button>
+  </form>
+</app-auth-card>

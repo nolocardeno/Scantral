@@ -67,7 +67,7 @@
 // --------------------------------------------------------------------------
 // SECCIÓN CARACTERÍSTICAS PRINCIPALES
 // --------------------------------------------------------------------------
-.caracteristicas {
+.features {
   background: v.$color-gradient-primary;
   min-height: 44rem;
   padding: v.$spacing-8 v.$spacing-4;
@@ -76,7 +76,7 @@
   align-items: center;
 }
 
-.caracteristicas__titulo {
+.features__title {
   font-size: v.$font-size-xl;
   font-weight: v.$font-weight-bold;
   color: v.$neutral-900;
@@ -84,7 +84,7 @@
   margin-bottom: v.$spacing-5;
 }
 
-.caracteristicas__grid {
+.features__grid {
   display: grid;
   grid-template-columns: repeat(3, auto);
   row-gap: v.$spacing-4;

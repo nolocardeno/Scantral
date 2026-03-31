@@ -1,0 +1,33 @@
+<!-- --------------------------------------------------------------------------
+     SIDEBAR BUTTON: Navigation with FontAwesome icon and text
+     -------------------------------------------------------------------------- -->
+
+<!-- Reusable SVG gradient (hidden, only defines the gradient) -->
+<svg class="sidebar-button__defs" aria-hidden="true">
+  <defs>
+    <linearGradient id="grad-sidebar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="var(--color-primary)" />
+      <stop offset="100%" stop-color="var(--color-secondary)" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<button
+  class="sidebar-button"
+  [class.sidebar-button--active]="active()"
+  type="button"
+>
+  <!-- ------------------------------------------------------------------
+       ICON (FontAwesome)
+       ------------------------------------------------------------------ -->
+  <fa-icon
+    class="sidebar-button__icon"
+    [icon]="icon()"
+    aria-hidden="true"
+  />
+
+  <!-- ------------------------------------------------------------------
+       TEXT
+       ------------------------------------------------------------------ -->
+  <span class="sidebar-button__text">{{ label() }}</span>
+</button>

@@ -1,0 +1,21 @@
+// --------------------------------------------------------------------------
+// LAYOUT PRINCIPAL (Grid: Header / Main / Footer)
+// --------------------------------------------------------------------------
+@use '../styles/00-settings/variables' as v;
+
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: v.$spacing-header;
+}
+
+// --------------------------------------------------------------------------
+// MAIN: Permite que las páginas hijas ocupen todo el alto disponible
+// --------------------------------------------------------------------------
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}

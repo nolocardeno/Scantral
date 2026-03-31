@@ -11,23 +11,23 @@ import {
   faUserGroup,
   faLaptop,
 } from '@fortawesome/free-solid-svg-icons';
-import { FeatureCardComponent } from '../../componentes/shared/feature-card/feature-card';
-import { AccordionItemComponent } from '../../componentes/shared/accordion-item/accordion-item';
-import { ButtonComponent } from '../../componentes/shared/button/button';
-import { AuthModalService } from '../../servicios/auth-modal.service';
+import { FeatureCardComponent } from '../../components/shared/feature-card/feature-card';
+import { AccordionItemComponent } from '../../components/shared/accordion-item/accordion-item';
+import { ButtonComponent } from '../../components/shared/button/button';
+import { AuthModalService } from '../../services/auth-modal.service';
 
 // --------------------------------------------------------------------------
 // INTERFACES
 // --------------------------------------------------------------------------
 interface Feature {
-  icono: IconDefinition;
-  texto: string;
-  descripcion: string;
+  icon: IconDefinition;
+  text: string;
+  description: string;
 }
 
-interface PreguntaFrecuente {
-  pregunta: string;
-  respuesta: string;
+interface FaqItem {
+  question: string;
+  answer: string;
 }
 
 // --------------------------------------------------------------------------
@@ -44,61 +44,61 @@ export class LandingPageComponent {
 
   readonly features: Feature[] = [
     {
-      icono: faFileImport,
-      texto: 'Escaneo y extracción automática',
-      descripcion: 'Sube una imagen de un documento y la aplicación extraerá automáticamente la información relevante para registrarlo de forma rápida.',
+      icon: faFileImport,
+      text: 'Escaneo y extracción automática',
+      description: 'Sube una imagen de un documento y la aplicación extraerá automáticamente la información relevante para registrarlo de forma rápida.',
     },
     {
-      icono: faBell,
-      texto: 'Alertas inteligentes de vencimiento',
-      descripcion: 'Recibe avisos antes de que un documento, ticket o devolución esté próximo a caducar para no perder fechas importantes.',
+      icon: faBell,
+      text: 'Alertas inteligentes de vencimiento',
+      description: 'Recibe avisos antes de que un documento, ticket o devolución esté próximo a caducar para no perder fechas importantes.',
     },
     {
-      icono: faFolderOpen,
-      texto: 'Organización de documentos',
-      descripcion: 'Guarda y organiza tus documentos personales y tickets en un único lugar para tener siempre toda tu información localizada.',
+      icon: faFolderOpen,
+      text: 'Organización de documentos',
+      description: 'Guarda y organiza tus documentos personales y tickets en un único lugar para tener siempre toda tu información localizada.',
     },
     {
-      icono: faCalendarPlus,
-      texto: 'Exportación a calendarios de terceros',
-      descripcion: 'Exporta vencimientos y recordatorios a calendarios externos para tener tus fechas importantes siempre visibles.',
+      icon: faCalendarPlus,
+      text: 'Exportación a calendarios de terceros',
+      description: 'Exporta vencimientos y recordatorios a calendarios externos para tener tus fechas importantes siempre visibles.',
     },
     {
-      icono: faUserGroup,
-      texto: 'Gestión compartida entre usuarios',
-      descripcion: 'Comparte documentos y tickets con otras personas y gestiona información común desde una misma colección.',
+      icon: faUserGroup,
+      text: 'Gestión compartida entre usuarios',
+      description: 'Comparte documentos y tickets con otras personas y gestiona información común desde una misma colección.',
     },
     {
-      icono: faLaptop,
-      texto: 'Acceso desde cualquier lugar',
-      descripcion: 'Consulta tus documentos desde cualquier dispositivo a través de la aplicación web, cuando lo necesites.',
+      icon: faLaptop,
+      text: 'Acceso desde cualquier lugar',
+      description: 'Consulta tus documentos desde cualquier dispositivo a través de la aplicación web, cuando lo necesites.',
     },
   ];
 
-  readonly preguntasFrecuentes: PreguntaFrecuente[] = [
+  readonly faq: FaqItem[] = [
     {
-      pregunta: '¿Qué tipo de documentos puede reconocer Scantral?',
-      respuesta:
+      question: '¿Qué tipo de documentos puede reconocer Scantral?',
+      answer:
         'Scantral puede reconocer cualquier tipo de documento que tenga una fecha de vencimiento o devolución asociada — desde pasaportes, DNI, carnet de conducir hasta tickets de devoluciones o garantías.',
     },
     {
-      pregunta: '¿Recibiré recordatorios antes de que un documento expire?',
-      respuesta:
+      question: '¿Recibiré recordatorios antes de que un documento expire?',
+      answer:
         'Sí. La aplicación te avisará automáticamente antes de que un documento, ticket o devolución esté próximo a caducar, para que puedas actuar con tiempo suficiente. Y puedes elegir por donde recibir estos recordatorios.',
     },
     {
-      pregunta: '¿Tengo que introducir toda la información manualmente?',
-      respuesta:
+      question: '¿Tengo que introducir toda la información manualmente?',
+      answer:
         'No necesariamente. Puedes subir una imagen del ticket o documento y la aplicación intentará extraer automáticamente la información relevante. Ponte cómodo, Scantral lo hace por ti.',
     },
     {
-      pregunta: '¿Es seguro guardar mis documentos en la aplicación?',
-      respuesta:
+      question: '¿Es seguro guardar mis documentos en la aplicación?',
+      answer:
         'Absolutamente, en Scantral nos aseguramos que tus documentos sigan siendo confidenciales. Cada usuario tiene acceso únicamente a sus propios documentos y la información se gestiona de forma segura dentro del sistema.',
     },
     {
-      pregunta: '¿Puedo compartir documentos con otras personas?',
-      respuesta:
+      question: '¿Puedo compartir documentos con otras personas?',
+      answer:
         'Claro! Puedes organizar documentos y tickets en listas o grupos compartidos con otros usuarios para gestionarlos de forma conjunta. Facilidad en la gestión de documentos para cualquier tipo de grupo.',
     },
   ];
