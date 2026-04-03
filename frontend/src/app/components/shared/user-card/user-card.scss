@@ -16,6 +16,7 @@
     width: 3.0625rem;  // 49px
     height: 3.0625rem; // 49px
     border-radius: v.$radius-full;
+    border: v.$border-medium solid v.$color-primary;
     object-fit: cover;
     flex-shrink: 0;
 
@@ -25,11 +26,7 @@
       justify-content: center;
       background: v.$color-gradient-primary;
       color: v.$color-surface;
-
-      svg {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
+      font-size: 1.5rem;
     }
   }
 
