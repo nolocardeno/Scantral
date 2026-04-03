@@ -1,0 +1,23 @@
+<!-- --------------------------------------------------------------------------
+     AVATAR UPLOAD CARD: Cambio de imagen de usuario
+     -------------------------------------------------------------------------- -->
+<section class="avatar-upload-card">
+  <figure class="avatar-upload-card__avatar">
+    @if (imageUrl() && !imageError()) {
+      <img
+        class="avatar-upload-card__img"
+        [src]="imageUrl()"
+        alt="Imagen de perfil del usuario"
+        (error)="onImageError()"
+      />
+    } @else {
+      <span class="avatar-upload-card__img avatar-upload-card__img--placeholder" aria-hidden="true">
+        <fa-icon [icon]="faUser" />
+      </span>
+    }
+  </figure>
+
+  <h3 class="avatar-upload-card__label">Imagen de perfil</h3>
+
+  <app-file-picker (fileSelected)="fileSelected.emit($event)" />
+</section>
