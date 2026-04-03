@@ -1,0 +1,55 @@
+@use '../../../../styles/00-settings/variables' as v;
+
+// --------------------------------------------------------------------------
+// HOST
+// --------------------------------------------------------------------------
+:host {
+  display: block;
+}
+
+// --------------------------------------------------------------------------
+// DELETE CARD
+// --------------------------------------------------------------------------
+.delete-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: v.$spacing-2;
+  flex: 1;
+  background-color: v.$color-accent-secondary;
+  border: v.$border-thin solid v.$color-modal-border;
+  border-radius: v.$radius-card;
+  box-shadow: v.$shadow-card;
+  padding: v.$spacing-4;
+
+  // --------------------------------------------------------------------------
+  // TÍTULO
+  // --------------------------------------------------------------------------
+  &__title {
+    align-self: start;
+    font-family: v.$font-primary;
+    font-size: v.$font-size-md;
+    font-weight: v.$font-weight-bold;
+    color: v.$neutral-900;
+  }
+
+  // --------------------------------------------------------------------------
+  // AVISO
+  // --------------------------------------------------------------------------
+  &__warning {
+    font-family: v.$font-primary;
+    font-size: 0.8125rem;
+    color: v.$neutral-600;
+    text-align: center;
+    line-height: v.$line-height-normal;
+    max-width: 20rem;
+  }
+
+  // --------------------------------------------------------------------------
+  // BOTÓN
+  // --------------------------------------------------------------------------
+  &__action {
+    width: 85%;
+  }
+}
