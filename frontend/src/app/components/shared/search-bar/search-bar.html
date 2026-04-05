@@ -1,0 +1,31 @@
+<svg class="search-bar__defs" aria-hidden="true">
+  <defs>
+    <linearGradient id="grad-search" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="var(--color-primary)" />
+      <stop offset="100%" stop-color="var(--color-secondary)" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<search
+  class="search-bar"
+  [class.search-bar--focused]="focused"
+  (click)="inputRef.focus()"
+>
+  <fa-icon
+    class="search-bar__icon"
+    [icon]="faMagnifyingGlass"
+    aria-hidden="true"
+  />
+  <input
+    #inputRef
+    class="search-bar__input"
+    type="search"
+    [placeholder]="placeholder()"
+    [value]="value()"
+    (input)="onInput($event)"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+    aria-label="Buscar documentos"
+  />
+</search>

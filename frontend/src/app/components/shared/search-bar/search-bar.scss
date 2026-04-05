@@ -1,0 +1,113 @@
+@use '../../../../styles/00-settings/variables' as v;
+@use '../../../../styles/01-tools/mixins' as m;
+
+// ==========================================================================
+// SEARCH BAR — Barra de búsqueda con icono de lupa
+// ==========================================================================
+
+:host {
+  display: block;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem v.$spacing-2 0.6875rem;
+  background-color: v.$color-accent-secondary;
+  border: v.$border-thin solid v.$color-modal-border;
+  border-radius: v.$radius-pill;
+  box-shadow: v.$shadow-card;
+  outline: none;
+  cursor: text;
+  transition:
+    background v.$transition-base,
+    transform v.$transition-fast,
+    box-shadow v.$transition-fast,
+    border-color v.$transition-fast;
+
+  // ------------------------------------------------------------------
+  // Estado hover
+  // ------------------------------------------------------------------
+  &:hover:not(.search-bar--focused) {
+    background: linear-gradient(
+      to right,
+      rgba(v.$color-primary, 0.15),
+      rgba(v.$color-secondary, 0.25)
+    );
+    transform: translateY(v.$hover-translate);
+    box-shadow: v.$hover-shadow;
+
+    .search-bar__icon {
+      color: v.$neutral-900;
+
+      ::ng-deep svg path {
+        fill: v.$neutral-900;
+      }
+    }
+  }
+
+  &:active:not(.search-bar--focused) {
+    transform: translateY(v.$active-translate);
+    box-shadow: v.$active-shadow;
+  }
+
+  // ------------------------------------------------------------------
+  // Estado focus
+  // ------------------------------------------------------------------
+  &--focused {
+    border-color: v.$color-primary;
+    box-shadow: v.$shadow-card, 0 0 0 0.1875rem v.$color-focus-glow;
+  }
+
+  // ------------------------------------------------------------------
+  // SVG gradient definitions (hidden)
+  // ------------------------------------------------------------------
+  &__defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  // ------------------------------------------------------------------
+  // Icono lupa
+  // ------------------------------------------------------------------
+  &__icon {
+    font-size: v.$font-size-md-lg;
+    flex-shrink: 0;
+
+    ::ng-deep svg path {
+      fill: url(#grad-search);
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Input de texto
+  // ------------------------------------------------------------------
+  &__input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: v.$font-primary;
+    font-weight: v.$font-weight-bold;
+    font-size: v.$font-size-md;
+    color: v.$neutral-900;
+
+    &::placeholder {
+      color: v.$color-placeholder;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
+
+    // Eliminar botón clear nativo de type="search"
+    &::-webkit-search-cancel-button {
+      appearance: none;
+    }
+  }
+}
