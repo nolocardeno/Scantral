@@ -1,0 +1,59 @@
+package com.nolocardeno.backend.dto;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public final class DocumentMapper {
+
+    private DocumentMapper() {
+    }
+
+    public static DocumentResponse toResponse(com.nolocardeno.backend.model.Document doc) {
+        Long daysRemaining = null;
+        if (doc.getExpiryDate() != null) {
+            daysRemaining = ChronoUnit.DAYS.between(LocalDate.now(), doc.getExpiryDate());
+        }
+
+        return DocumentResponse.builder()
+                .id(doc.getId())
+                .type(doc.getType())
+                .title(doc.getTitle())
+                .category(doc.getCategory())
+                .storeName(doc.getStoreName())
+                .amount(doc.getAmount())
+                .issueDate(doc.getIssueDate())
+                .expiryDate(doc.getExpiryDate())
+                .daysRemaining(daysRemaining)
+                .imagePath(doc.getImagePath())
+                .aiProcessed(doc.getAiProcessed())
+                .notes(doc.getNotes())
+                .status(doc.getStatus())
+                .duplicateOfId(doc.getDuplicateOf() != null ? doc.getDuplicateOf().getId() : null)
+                .createdAt(doc.getCreatedAt())
+                .updatedAt(doc.getUpdatedAt())
+                .build();
+    }
+
+    public static AlertResponse toAlertResponse(com.nolocardeno.backend.model.Alert alert) {
+        return AlertResponse.builder()
+                .id(alert.getId())
+                .documentId(alert.getDocument().getId())
+                .documentTitle(alert.getDocument().getTitle())
+                .type(alert.getType())
+                .triggerDate(alert.getTriggerDate())
+                .status(alert.getStatus())
+                .createdAt(alert.getCreatedAt())
+                .build();
+    }
+
+    public static RenewalHistoryResponse toRenewalResponse(com.nolocardeno.backend.model.RenewalHistory rh) {
+        return RenewalHistoryResponse.builder()
+                .id(rh.getId())
+                .documentId(rh.getDocument().getId())
+                .previousExpiryDate(rh.getPreviousExpiryDate())
+                .newExpiryDate(rh.getNewExpiryDate())
+                .renewedAt(rh.getRenewedAt())
+                .notes(rh.getNotes())
+                .build();
+    }
+}
