@@ -19,6 +19,7 @@
       <app-user-card
         [username]="authService.user()!.name"
         subtitle="Cuenta personal"
+        [photoUrl]="authService.profileImageUrl()"
       />
     </nav>
   } @else {
