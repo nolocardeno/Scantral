@@ -1,1 +1,15 @@
-// _css-variables.scss
+// ==========================================================================
+// VARIABLES CSS PERSONALIZADAS (Custom Properties)
+// ==========================================================================
+
+@use 'variables' as v;
+
+:root {
+  --color-primary: #{v.$color-primary};
+  --color-secondary: #{v.$color-secondary};
+  --color-input-bg: #{v.$color-input-bg};
+  --color-input-border: #{v.$color-input-border};
+  --color-modal-border: #{v.$color-modal-border};
+  --color-focus-glow: #{v.$color-focus-glow};
+  --shadow-card: #{v.$shadow-card};
+}
