@@ -1,0 +1,71 @@
+<!-- --------------------------------------------------------------------------
+     PÁGINA AJUSTES: Sidebar + Área de contenido
+     -------------------------------------------------------------------------- -->
+<app-sidebar
+  [currentPage]="currentPage()"
+  (onNavigate)="onNavigate($event)"
+/>
+
+<section class="settings__content">
+  <!-- ------------------------------------------------------------------
+       PAGE HEADER
+       ------------------------------------------------------------------ -->
+  <app-page-header
+    title="Ajustes de usuario"
+    subtitle="Modifica tus datos personales, contraseña, foto de perfil..."
+  />
+
+  <!-- ------------------------------------------------------------------
+       GRID DE CONTENIDO
+       ------------------------------------------------------------------ -->
+  <main class="settings__grid">
+    <!-- CARD: Formulario de datos de usuario -->
+    <section class="settings__card">
+      <form class="settings__form" [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+        <app-form-field
+          label="Email"
+          type="email"
+          inputId="settings-email"
+          formControlName="email"
+        />
+
+        <app-form-field
+          label="Nombre de usuario"
+          type="text"
+          inputId="settings-name"
+          formControlName="name"
+        />
+
+        <app-form-field
+          label="Contraseña actual"
+          type="password"
+          inputId="settings-password"
+          formControlName="password"
+        />
+
+        <app-form-field
+          label="Nueva contraseña"
+          type="password"
+          inputId="settings-new-password"
+          formControlName="newPassword"
+        />
+
+        <app-button variant="primary" size="auth" type="submit" class="settings__form-action">
+          Guardar cambios
+        </app-button>
+      </form>
+    </section>
+
+    <!-- COLUMNA DERECHA: Perfil + Eliminar cuenta -->
+    <aside class="settings__right-column">
+      <app-avatar-upload-card
+        [imageUrl]="authService.profileImageUrl()"
+        (fileSelected)="onProfileImageSelected($event)"
+      />
+
+      <app-delete-account-card
+        (deleteConfirmed)="onDeleteAccount()"
+      />
+    </aside>
+  </main>
+</section>

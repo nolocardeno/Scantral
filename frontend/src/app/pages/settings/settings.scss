@@ -1,0 +1,63 @@
+@use '../../../styles/00-settings/variables' as v;
+
+// --------------------------------------------------------------------------
+// HOST: Layout con Sidebar
+// --------------------------------------------------------------------------
+:host {
+  display: flex;
+  flex: 1;
+  margin-left: v.$spacing-sidebar-width;
+}
+
+// --------------------------------------------------------------------------
+// ÁREA DE CONTENIDO
+// --------------------------------------------------------------------------
+.settings__content {
+  flex: 1;
+  padding: v.$spacing-4;
+}
+
+// --------------------------------------------------------------------------
+// GRID DE CONTENIDO
+// --------------------------------------------------------------------------
+.settings__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: v.$spacing-3;
+  margin-top: v.$spacing-3;
+}
+
+// --------------------------------------------------------------------------
+// COLUMNA DERECHA (Perfil + Eliminar)
+// --------------------------------------------------------------------------
+.settings__right-column {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-3;
+  align-self: stretch;
+}
+
+// --------------------------------------------------------------------------
+// CARD GENÉRICA
+// --------------------------------------------------------------------------
+.settings__card {
+  background-color: v.$color-accent-secondary;
+  border: v.$border-thin solid v.$color-modal-border;
+  border-radius: v.$radius-card;
+  box-shadow: v.$shadow-card;
+  padding: v.$spacing-4;
+}
+
+// --------------------------------------------------------------------------
+// FORMULARIO DE DATOS
+// --------------------------------------------------------------------------
+.settings__form {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-3;
+}
+
+.settings__form-action {
+  align-self: center;
+  margin-top: v.$spacing-2;
+}
