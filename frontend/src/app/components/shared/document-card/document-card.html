@@ -1,0 +1,86 @@
+<!-- --------------------------------------------------------------------------
+     DOCUMENT CARD: Document/ticket information card
+     -------------------------------------------------------------------------- -->
+
+<!-- Reusable SVG gradient (hidden, only defines the gradient) -->
+<svg class="document-card__defs" aria-hidden="true">
+  <defs>
+    <linearGradient id="grad-document-card" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="var(--color-primary)" />
+      <stop offset="100%" stop-color="var(--color-secondary)" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<article class="document-card">
+  <!-- --------------------------------------------------------------------------
+       HEADER: Type + Title + Category badge
+       -------------------------------------------------------------------------- -->
+  <header class="document-card__header">
+    <!-- Type (icon + text) -->
+    <span class="document-card__type">
+      <fa-icon
+        class="document-card__type-icon"
+        [icon]="typeIcon()"
+        aria-hidden="true"
+      />
+      <span>{{ typeLabel() }}</span>
+    </span>
+
+    <!-- Category badge -->
+    <span class="document-card__badge">{{ category() }}</span>
+
+    <!-- Title -->
+    <h3 class="document-card__title">{{ title() }}</h3>
+  </header>
+
+  <!-- --------------------------------------------------------------------------
+       BODY: Entity + Dates
+       -------------------------------------------------------------------------- -->
+  <section class="document-card__body">
+    <!-- Entity -->
+    <p class="document-card__row">
+      <fa-icon
+        class="document-card__icon"
+        [icon]="faBuilding"
+        aria-hidden="true"
+      />
+      <span>
+        <strong>Entidad: </strong>{{ entity() }}
+      </span>
+    </p>
+
+    <!-- Issue date -->
+    <p class="document-card__row">
+      <fa-icon
+        class="document-card__icon"
+        [icon]="faCalendarCheck"
+        aria-hidden="true"
+      />
+      <span>
+        <strong>Emisión: </strong>{{ issueDate() }}
+      </span>
+    </p>
+
+    <!-- Expiry date -->
+    <p class="document-card__row">
+      <fa-icon
+        class="document-card__icon"
+        [icon]="faCalendarXmark"
+        aria-hidden="true"
+      />
+      <span>
+        <strong>Vencimiento: </strong>{{ expiryDate() }}
+      </span>
+    </p>
+  </section>
+
+  <!-- --------------------------------------------------------------------------
+       SEPARATOR + STATUS
+       -------------------------------------------------------------------------- -->
+  <hr class="document-card__separator" />
+
+  <footer class="document-card__footer">
+    <span class="document-card__status">{{ statusText() }}</span>
+  </footer>
+</article>
