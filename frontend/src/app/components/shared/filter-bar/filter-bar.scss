@@ -1,0 +1,110 @@
+@use '../../../../styles/00-settings/variables' as v;
+@use '../../../../styles/01-tools/mixins' as m;
+
+// ==========================================================================
+// FILTER BAR — Barra de filtros con tarjetas interactivas
+// ==========================================================================
+
+:host {
+  display: block;
+}
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$spacing-2;
+
+  @include m.respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-to(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  // ------------------------------------------------------------------
+  // SVG gradient definitions (hidden)
+  // ------------------------------------------------------------------
+  &__defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  // ------------------------------------------------------------------
+  // Card — Tarjeta individual de filtro
+  // ------------------------------------------------------------------
+  &__card {
+    @include m.flex-center(column);
+    gap: v.$spacing-1;
+    min-height: 8.75rem;
+    padding: v.$spacing-2;
+    background-color: v.$color-accent-secondary;
+    border: v.$border-thin solid v.$color-modal-border;
+    border-radius: v.$radius-card;
+    box-shadow: v.$shadow-card;
+    cursor: pointer;
+    color: v.$neutral-900;
+    font-family: v.$font-primary;
+    transition:
+      background v.$transition-base,
+      transform v.$transition-fast,
+      box-shadow v.$transition-fast;
+
+    &:hover:not(.filter-bar__card--active) {
+      background: linear-gradient(
+        to right,
+        rgba(v.$color-primary, 0.15),
+        rgba(v.$color-secondary, 0.25)
+      );
+      transform: translateY(v.$hover-translate);
+      box-shadow: v.$hover-shadow;
+    }
+
+    &:active:not(.filter-bar__card--active) {
+      transform: translateY(v.$active-translate);
+      box-shadow: v.$active-shadow;
+    }
+
+    &:focus-visible {
+      outline: v.$border-medium solid v.$color-primary;
+      outline-offset: v.$border-medium;
+    }
+
+    // Estado activo (seleccionado)
+    &--active {
+      background: linear-gradient(to right, v.$color-primary, v.$color-secondary);
+
+      .filter-bar__icon {
+        color: v.$neutral-900;
+
+        ::ng-deep svg path {
+          fill: v.$neutral-900;
+        }
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Icon — Icono FontAwesome con gradiente
+  // ------------------------------------------------------------------
+  &__icon {
+    font-size: v.$font-size-lg;
+
+    ::ng-deep svg path {
+      fill: url(#grad-filter);
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // Count & Label — Número contador y etiqueta
+  // ------------------------------------------------------------------
+  &__count,
+  &__label {
+    font-weight: v.$font-weight-bold;
+    font-size: v.$font-size-md;
+    line-height: v.$line-height-tight;
+    text-transform: uppercase;
+  }
+}

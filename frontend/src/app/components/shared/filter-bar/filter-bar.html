@@ -1,0 +1,31 @@
+<svg class="filter-bar__defs" aria-hidden="true">
+  <defs>
+    <linearGradient id="grad-filter" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="var(--color-primary)" />
+      <stop offset="100%" stop-color="var(--color-secondary)" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<nav class="filter-bar" role="radiogroup" aria-label="Filtros de documentos">
+  @for (filter of filters; track filter.type) {
+    <button
+      class="filter-bar__card"
+      [class.filter-bar__card--active]="activeFilter() === filter.type"
+      (click)="selectFilter(filter.type)"
+      role="radio"
+      [attr.aria-checked]="activeFilter() === filter.type"
+      [attr.aria-label]="filter.label + ': ' + counts()[filter.type]"
+      type="button"
+    >
+      <fa-icon
+        class="filter-bar__icon"
+        [icon]="filter.icon"
+        aria-hidden="true"
+      />
+
+      <span class="filter-bar__count">{{ counts()[filter.type] }}</span>
+      <span class="filter-bar__label">{{ filter.label }}</span>
+    </button>
+  }
+</nav>
